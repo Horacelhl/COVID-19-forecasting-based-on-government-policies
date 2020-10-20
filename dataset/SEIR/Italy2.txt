@@ -1,0 +1,46 @@
+[simulation]
+# Simulation-specific details.
+# max_simulation_time specifies how many days from t=0 forward are modeled
+max_simulation_time = 330
+method = DOP853
+max_step = 0.5
+
+
+[model]
+population = 6e7
+incubation_period = 14
+infectious_period = 3
+initial_R0 = 3.5
+hospitalization_probability = 0.15
+hospitalization_duration = 7
+hospitalization_lag_from_onset = 7
+icu_probability = 0.01
+icu_duration = 10
+icu_lag_from_onset = 11
+death_probability = 0.013
+death_lag_from_onset = 25
+
+[initial state]
+probabilities = False
+population_exposed = 30
+population_infected = 1
+
+[restriction control-policy]
+day-begins = 80
+day-ends = 270
+infectivity modifier = 0.53
+
+[restriction total-lockdown]
+day-begins = 115
+day-ends = 130
+infectivity modifier = 0.0001
+
+[restriction other-control-policy]
+day-begins = 130
+day-ends = 170
+infectivity modifier = 0.22
+
+[restriction second-lock-down]
+day-begins = 170
+day-ends = 250
+infectivity modifier = 0.6
